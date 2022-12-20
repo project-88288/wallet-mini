@@ -1,6 +1,6 @@
 import { getErrorMessage } from "utils/error"
 import Layout, { Page } from "components/layout"
-import { Banner, Content, Header, Actions, Sidebar } from "components/layout"
+import { Banner, Content, Header, Actions } from "components/layout"
 import { ErrorBoundary, Wrong } from "components/feedback"
 
 /* routes */
@@ -10,8 +10,8 @@ import { useNav } from "./routes"
 import NetworkName from "./sections/NetworkName"
 
 /* sidebar */
-import Nav from "./sections/Nav"
-import Aside from "./sections/Aside"
+// import Nav from "./sections/Nav"
+// import Aside from "./sections/Aside"
 
 /* header */
 import IsClassicNetwork from "./sections/IsClassicNetwork"
