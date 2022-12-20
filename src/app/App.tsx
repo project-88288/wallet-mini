@@ -37,11 +37,6 @@ const App = () => {
         <NetworkName />
       </Banner>
 
-      <Sidebar>
-        <Nav />
-        <Aside />
-      </Sidebar>
-
       <Header>
         <IsClassicNetwork />
 
