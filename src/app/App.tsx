@@ -1,30 +1,33 @@
-import { getErrorMessage } from "utils/error" // eslint-disable-next-line
-import Layout, { Page } from "components/layout" // eslint-disable-next-line
-import { Banner, Content, Header, Actions } from "components/layout"
+import { getErrorMessage } from "utils/error"
+// eslint-disable-next-line
+import Layout, { Page } from "components/layout"
+import { Banner, Content, Header, Actions, Sidebar } from "components/layout"
+import { ErrorBoundary, Wrong } from "components/feedback"
+
+/* routes */
+import { useNav } from "./routes"
 
 /* banner */
-// eslint-disable-next-line
 import NetworkName from "./sections/NetworkName"
+
+/* sidebar */
+import Nav from "./sections/Nav"
+import Aside from "./sections/Aside"
 
 /* header */
 import IsClassicNetwork from "./sections/IsClassicNetwork"
-import Refresh from "./sections/Refresh" // eslint-disable-next-line
-import Preferences from "./sections/Preferences" // eslint-disable-next-line
+import Refresh from "./sections/Refresh"
+import Preferences from "./sections/Preferences"
 import SelectTheme from "./sections/SelectTheme"
 import ConnectWallet from "./sections/ConnectWallet"
 
-/* routes */
-import { useNav } from "./routes" // eslint-disable-next-line
-import { ErrorBoundary, Wrong } from "components/feedback"
-
-/* init */
-// eslint-disable-next-line
-import InitBankBalance from "./InitBankBalance"
-
 /* extra */
-import LatestTx from "./sections/LatestTx" // eslint-disable-next-line
+import LatestTx from "./sections/LatestTx"
 import ValidatorButton from "./sections/ValidatorButton"
 import DevTools from "./sections/DevTools"
+
+/* init */
+import InitBankBalance from "./InitBankBalance"
 
 const App = () => {
   // eslint-disable-next-line
@@ -35,6 +38,12 @@ const App = () => {
       <Banner>
         <NetworkName />
       </Banner>
+
+      <Sidebar>
+        <Nav />
+        <Aside />
+      </Sidebar>
+
       <Header>
         <IsClassicNetwork />
 
@@ -42,11 +51,21 @@ const App = () => {
           <DevTools />
           <section>
             <Refresh />
+            <Preferences />
+            <SelectTheme />
           </section>
+          <ValidatorButton />
           <ConnectWallet />
         </Actions>
+
         <LatestTx />
       </Header>
+
+      <Content>
+        <ErrorBoundary fallback={fallback}>
+          <InitBankBalance>{routes}</InitBankBalance>
+        </ErrorBoundary>
+      </Content>
     </Layout>
   )
 }
@@ -55,5 +74,7 @@ export default App
 
 /* error */
 export const fallback = (error: Error) => (
-  <Wrong>{getErrorMessage(error)}</Wrong>
+  <Page>
+    <Wrong>{getErrorMessage(error)}</Wrong>
+  </Page>
 )
