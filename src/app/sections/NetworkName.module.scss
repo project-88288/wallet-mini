@@ -1,11 +1,8 @@
-.text {
-  font-weight: var(--bold);
-  padding: 4px;
-  text-align: center;
-}
-
-.warning {
-  background: var(--warning);
+.component {
+  background-color: var(--warning);
   color: white;
-  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: var(--font-size);
+  font-weight: var(--bold);
+  padding: 6px 12px;
 }

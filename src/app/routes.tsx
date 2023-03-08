@@ -65,6 +65,12 @@ export const useNav = () => {
 
   const menu = [
     {
+      path: "/dashboard",
+      element: <Wallet />,
+      title: t("Dashboard"),
+      icon: <WalletIcon {...ICON_SIZE} />,
+    },
+    {
       path: "/wallet",
       element: <Wallet />,
       title: t("Wallet"),
@@ -110,6 +116,7 @@ export const useNav = () => {
 
   const routes = [
     { path: "/", element: <Dashboard /> },
+    { path: "/dashboard", element: <Dashboard /> },
 
     /* pages */
     ...menu,
