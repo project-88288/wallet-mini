@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import WifiOffIcon from "@mui/icons-material/WifiOff"
-import Overlay from "../components/Overlay"
+import Overlay from "app/components/Overlay"
 import styles from "./Online.module.scss"
 
 const Online = () => {
