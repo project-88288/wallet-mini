@@ -7,8 +7,6 @@ const History = () => {
   const { t } = useTranslation()
   const available = useIsTerraAPIAvailable()
 
-  console.log("useIsTerraAPIAvailable:", available)
-
   if (!available) return <Wrong>{t("History is not supported")}</Wrong>
 
   return <HistoryList />
