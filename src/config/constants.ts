@@ -7,6 +7,44 @@ export const BRIDGE = "https://walletconnect.terra.dev"
 /* api */
 export const ASSETS = "https://assets.terra.money"
 export const OBSERVER = "wss://observer.terra.dev"
+export const terraFCDURL = (name?: String) => {
+  switch (name) {
+    case "mainnet":
+      return "https://phoenix-fcd.terra.dev"
+    case "testnet":
+      return "https://pisco-fcd.terra.dev"
+    case "classic":
+      return "https://columbus-fcd.terra.dev"
+    case "localterra":
+      return "http://localhost:3060"
+    default:
+      return ""
+  }
+}
+export const terraLCDURL = (name?: String) => {
+  switch (name) {
+    case "mainnet":
+      return "https://phoenix-lcd.terra.dev"
+    case "testnet":
+      return "https://pisco-lcd.terra.dev"
+    case "classic":
+      return "https://columbus-lcd.terra.dev"
+    case "localterra":
+      return "http://localhost:1317"
+    default:
+      return ""
+  }
+}
+export const terraAPIURL = (name?: String) => {
+  switch (name) {
+    case "mainnet":
+      return "https://phoenix-api.terra.dev"
+    case "testnet":
+      return "https://pisco-api.terra.dev"
+    default:
+      return ""
+  }
+}
 
 /* website */
 export const STATION = "https://station.terra.money"
