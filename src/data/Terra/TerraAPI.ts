@@ -9,7 +9,7 @@ import { useNetwork } from "data/wallet"
 import { useOracleParams } from "data/queries/oracle"
 import { useNetworks } from "app/InitNetworks"
 import { queryKey, RefetchOptions } from "../query"
-import { terraFCDURL, terraAPIURL } from "../../config/constants"
+import { terraFCDURL, terraAPIURL, terraLCDURL } from "../../config/constants"
 
 export enum Aggregate {
   PERIODIC = "periodic",
@@ -86,16 +86,16 @@ export const useTerraLCDURL = (mainnet?: true) => {
   const network = useNetwork()
   const networks = useNetworks()
   return mainnet
-    ? terraFCDURL(networks["mainnet"].name)
-    : terraFCDURL(network.name)
+    ? terraLCDURL(networks["mainnet"].name)
+    : terraLCDURL(network.name)
 }
 export const useIsTerraLCDAvailable = () => {
-  const url = useTerraFCDURL()
+  const url = useTerraLCDURL()
   return !!url
 }
 export const useTerraLCD = <T>(path: string, params?: object, fallback?: T) => {
-  const baseURL = useTerraFCDURL()
-  const available = useIsTerraFCDAvailable()
+  const baseURL = useTerraLCDURL()
+  const available = useIsTerraLCDAvailable()
   const shouldFallback = !available && fallback
 
   return useQuery<T, AxiosError>(

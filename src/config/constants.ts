@@ -48,7 +48,21 @@ export const terraAPIURL = (name?: String) => {
 
 /* website */
 export const STATION = "https://station.terra.money"
-export const FINDER = "https://terrascope.info"
+export const FINDER = (name?: String) => {
+  switch (name) {
+    case "mainnet":
+      return "https://terrascope.info"
+    case "testnet":
+      return "https://terrascope.info"
+    case "classic":
+      return "https://terrascope.info"
+    case "localterra":
+      return "http://localhost:1011"
+    default:
+      return ""
+  }
+}
+//export const FINDER = "https://terrascope.info"
 export const EXTENSION =
   "https://chrome.google.com/webstore/detail/aiifbnbfobpmeekipheeijimdpnlpgpp"
 export const TUTORIAL =

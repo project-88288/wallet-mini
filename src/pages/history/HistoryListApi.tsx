@@ -8,9 +8,9 @@ import { useTerraAPIURL } from "data/Terra/TerraAPI"
 import { Button } from "components/general"
 import { Card, Col, Page } from "components/layout"
 import { Empty } from "components/feedback"
-import HistoryItem from "./HistoryItem"
+import HistoryItemApi from "./HistoryItemApi"
 
-const HistoryList = () => {
+const HistoryListApi = () => {
   const { t } = useTranslation()
   const address = useAddress()
   const baseURL = useTerraAPIURL()
@@ -57,7 +57,7 @@ const HistoryList = () => {
         {pages.map(({ list }, i) => (
           <Fragment key={i}>
             {list.map((item) => (
-              <HistoryItem {...item} key={item.txhash} />
+              <HistoryItemApi {...item} key={item.txhash} />
             ))}
           </Fragment>
         ))}
@@ -85,4 +85,4 @@ const HistoryList = () => {
   )
 }
 
-export default HistoryList
+export default HistoryListApi
