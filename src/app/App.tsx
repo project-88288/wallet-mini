@@ -52,6 +52,7 @@ const App = () => {
             <Preferences />
             <SelectTheme />
           </section>
+
           <ValidatorButton />
           <ConnectWallet />
         </Actions>
