@@ -22,10 +22,11 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
 const FinderLink = forwardRef(
   (
     { children, short, ...rest }: PropsWithChildren<Props>,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    ref: ForwardedRef<HTMLAnchorElement>
   ) => {
     const { block, tx, validator, ...attrs } = rest
     const networkName = useNetworkName()
+    const finderURL = FINDER(networkName)
     const path = tx
       ? "tx"
       : block
@@ -35,7 +36,7 @@ const FinderLink = forwardRef(
       : "address"
 
     const value = rest.value ?? children
-    const link = [FINDER, networkName, path, value].join("/")
+    const link = [finderURL, networkName, path, value].join("/")
     const className = classNames(attrs.className, styles.link)
 
     return (
@@ -43,7 +44,7 @@ const FinderLink = forwardRef(
         {short && typeof children === "string" ? truncate(children) : children}
       </ExternalLink>
     )
-  },
+  }
 )
 
 export default FinderLink

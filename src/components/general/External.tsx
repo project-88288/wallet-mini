@@ -7,8 +7,11 @@ interface ExternalLinkProps extends HTMLProps<HTMLAnchorElement> {
 }
 
 export const ExternalLink = forwardRef(
-  ({ icon, children, href, ...attrs }: ExternalLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
-    if (!validateLink(href)) return null
+  (
+    { icon, children, href, ...attrs }: ExternalLinkProps,
+    ref: ForwardedRef<HTMLAnchorElement>
+  ) => {
+    //  if (!validateLink(href)) return null
 
     return (
       <a
@@ -23,7 +26,7 @@ export const ExternalLink = forwardRef(
         {icon && <CallMadeIcon fontSize="inherit" />}
       </a>
     )
-  },
+  }
 )
 
 interface ExternalIconLinkProps extends HTMLProps<HTMLAnchorElement> {
@@ -33,7 +36,7 @@ interface ExternalIconLinkProps extends HTMLProps<HTMLAnchorElement> {
 export const ExternalIconLink = forwardRef(
   (
     { icon, children, href, ...attrs }: ExternalIconLinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    ref: ForwardedRef<HTMLAnchorElement>
   ) => {
     if (!validateLink(href)) return null
 
@@ -51,7 +54,7 @@ export const ExternalIconLink = forwardRef(
         {children}
       </a>
     )
-  },
+  }
 )
 
 export const validateLink = (href?: string) => {
